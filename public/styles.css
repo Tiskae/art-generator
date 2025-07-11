@@ -1,0 +1,122 @@
+* {
+  /*  general CSS resets */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  background-image: linear-gradient(to bottom right, rgb(173, 81, 173), purple);
+  padding: 20px;
+}
+
+.heading {
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+  text-align: center;
+}
+
+.main {
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.loader {
+  width: 150px;
+  height: 150px;
+  position: absolute; /* positions it relative to the main (nearest parent) */
+  border: 3px solid purple;
+  border-right-color: transparent;
+  border-radius: 50%;
+  top: 275px;
+  animation: spin;
+  animation-duration: 1s; /* how long a cycle should take */
+  animation-iteration-count: infinite; /* how many times the animation should run */
+  animation-timing-function: ease;
+}
+
+.loader.hidden {
+  display: none;
+}
+
+/* define an animation */
+@keyframes spin {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg); /* full circle*/
+  }
+}
+
+.art {
+  display: flex;
+  border: 1.5px solid #ddd;
+  transition: all 0.2s;
+  min-height: 400px;
+  min-width: 800px;
+}
+
+@media screen and (max-width: 848px) {
+  .art {
+    flex-direction: column;
+    min-width: auto;
+  }
+}
+
+.art.dimmed {
+  filter: blur(3px) opacity(0.8) brightness(0.9);
+}
+
+.art-image {
+  width: 400px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.art-infos {
+  width: 400px;
+  /* padding: 20px; */
+}
+
+.art-title {
+  text-align: center;
+  font-family: sans-serif;
+  margin: 20px;
+}
+
+.art-info {
+  padding: 15px;
+}
+
+a.art-info {
+  color: purple;
+  display: block;
+}
+
+.art-info:nth-of-type(odd) {
+  background-color: #ddd;
+}
+
+.generate-btn {
+  font-size: 14px;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  background-color: purple;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.generate-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.generate-btn:hover {
+  opacity: 0.8;
+}

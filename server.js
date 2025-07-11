@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 8080;
 
 // Middleware
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "../public")));
+app.use(express.static(path.join(__dirname, "./public")));
 
 // API Routes
 app.post("/api/favorites", async (req, res) => {
@@ -30,7 +30,7 @@ app.get("/api/favorites", async (req, res) => {
 
 // Views
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public", "index.html"));
+  res.sendFile(path.join(__dirname, "./public", "index.html"));
 })
 
 // Start server
